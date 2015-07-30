@@ -1,2 +1,10 @@
-<h1>Products#index</h1>
-<p>Find me in app/views/products/index.html.erb</p>
+<h1>Products Page</h1>
+<p>What do you want to see?</p>
+
+<div ng-controller="ProductCtrl as ctrl">
+	<h3>{{ctrl.greeting}}</h3>
+	<form>
+		<input type="text" ng-model="myText">
+	</form>
+	{{myText}}
+</div>
