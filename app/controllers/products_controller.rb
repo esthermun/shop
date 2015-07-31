@@ -14,46 +14,64 @@ class ProductsController < ApplicationController
 
 	def new
 	  @product = Product.new
+	  3.times{@product.product_images.build}
 	end
 
 	def create
 		#respond_with Product.create(params[:product])
   		@product = Product.new(product_params)
 
-  		respond_to do |format|
-  			if @product.save
-  				format.html { redirect_to @product, notice: 'Product was successfully created.'}
-  				format.json { render :show, status: :created, location: @product }
-  			else
-  				format.html { render :new }
-        		format.json { render json: @product.errors, status: :unprocessable_entity }
-  			end
+  		if @product.save
+  			flash[:notice] = "Product was successfully created."
+  			redirect_to @product
+  		else	
+  			render 'new'
   		end
+  		# respond_to do |format|
+  		# 	if @product.save
+  		# 		format.html { redirect_to @product, notice: 'Product was successfully created.'}
+  		# 		format.json { render :show, status: :created, location: @product }
+  		# 	else
+  		# 		format.html { render :new }
+    #     		format.json { render json: @product.errors, status: :unprocessable_entity }
+  		# 	end
+  		# end
   	end
 
 	def edit
+		3.times{@product.product_images.build}
 	end
 
 	def update
 		#respond_with Product.update(params[:id], params[:product])
-  		respond_to do |format|
-    		if @product.update(product_params)
-    			format.html { redirect_to @product, notice: 'Product was successfully updated.' }
-        		format.json { render :show, status: :ok, location: @product }
-      		else
-        		format.html { render :edit }
-        		format.json { render json: @product.errors, status: :unprocessable_entity }
-      		end
-    	end
+		if @product.update(product_params)
+			flash[:notice] = "Product was successfully updated."
+			redirect_to @product
+		else
+			render 'edit'
+		end
+  		# respond_to do |format|
+    # 		if @product.update(product_params)
+    # 			format.html { redirect_to @product, notice: 'Product was successfully updated.' }
+    #     		format.json { render :show, status: :ok, location: @product }
+    #   		else
+    #     		format.html { render :edit }
+    #     		format.json { render json: @product.errors, status: :unprocessable_entity }
+    #   		end
+    # 	end
   	end
 
 	def destroy
 		#respond_with Product.destroy(params[:id])
-  		@product.destroy
-    		respond_to do |format|
-    		format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
-    		format.json { head :no_content }
-    	end
+		if @product.destroy
+			flash[:notice] = "Product was successfully destroyed."
+			redirect_to products_url
+		end
+  		# @product.destroy
+    # 		respond_to do |format|
+    # 		format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
+    # 		format.json { head :no_content }
+    # 	end
   	end
 
 	private
