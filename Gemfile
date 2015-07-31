@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem "devise"
+
 gem 'faker'
 gem 'populator'
 gem 'angularjs-rails'
