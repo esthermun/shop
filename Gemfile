@@ -1,5 +1,10 @@
 source 'https://rubygems.org'
 
+gem 'activeadmin', github:'activeadmin' 
+gem 'cancan'
+gem 'draper'
+gem 'pundit'
+
 gem "devise"
 
 gem 'faker'
