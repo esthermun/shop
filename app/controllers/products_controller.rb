@@ -14,7 +14,7 @@ class ProductsController < ApplicationController
 
 	def new
 	  @product = Product.new
-	  3.times{@product.product_images.build}
+	  #@product.product_images.build
 	end
 
 	def create
@@ -39,7 +39,7 @@ class ProductsController < ApplicationController
   	end
 
 	def edit
-		3.times{@product.product_images.build}
+		#@product.product_images.build
 	end
 
 	def update
@@ -80,7 +80,7 @@ class ProductsController < ApplicationController
   	end
 
   	def product_params
-  		params.require(:product).permit(:name, :description, :quantity, :price, :status)
+  		params.require(:product).permit(:name, :description, :quantity, :price, :status, product_images_attributes: [:product_image, :product_image_content_type, :product_image_file_name, :tempfile, :product_image_file_size, :product_image_updated_at, :_destroy])
   	end
 
 end
