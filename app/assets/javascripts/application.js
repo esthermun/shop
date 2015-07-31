@@ -13,5 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require angular
+//= require angularjs/app
+//= require angularjs/productCtrl
 //= require turbolinks
-//= require_tree ./angularjs
+//= require_tree .
