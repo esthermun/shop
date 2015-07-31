@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   	before_action :set_product, only: [:show, :edit, :update, :destroy]
-	#respond_to :json
+	  #before_filter :authenticate_user_admin!, :except => [:show, :index] 
+  #respond_to :json
 	
 	def index
   		@products = Product.all
