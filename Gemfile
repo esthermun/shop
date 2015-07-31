@@ -1,7 +1,10 @@
 source 'https://rubygems.org'
-
+#image attachment
+gem 'paperclip', :git => "git://github.com/thoughtbot/paperclip.git"
+# populate with fake data
 gem 'faker'
 gem 'populator'
+#angular
 gem 'angularjs-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
