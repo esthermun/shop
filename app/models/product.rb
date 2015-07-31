@@ -1,5 +1,6 @@
 class Product < ActiveRecord::Base
 	#before_action :authenticate_user!
+	
 
 	validates :name, presence: true, 
 					 length: { minimum: 5, maximum: 50 }	
