@@ -12,7 +12,7 @@ namespace :db do
 			product.description = Faker::Lorem.paragraph(2)
 			#product.image = Faker::Avatar.image
 			product.price = Faker::Commerce.price
-			#product.status = Faker::Number.between(0,1)
+			product.status = Faker::Number.between(0,1)
 			product.created_at = Faker::Time.between(1.year.ago, Time.now)
 		end
 	end

@@ -15,5 +15,6 @@
 //= require angular
 //= require angularjs/app
 //= require angularjs/productCtrl
-//= require turbolinks
 //= require_tree .
+//= require turbolinks
+

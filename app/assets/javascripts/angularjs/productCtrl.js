@@ -1,6 +1,6 @@
 function ProductCtrl(){
 	
-	this.greeting = "Hello world!";
+	this.greeting = "Hello world! I'm angular!";
 	// this.products = [];
 	
 }
