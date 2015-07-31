@@ -1,17 +1,23 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  	before_action :set_product, only: [:show, :edit, :update, :destroy]
+	#respond_to :json
+	
 	def index
   		@products = Product.all
+  		#respond_with Product.all
   	end
 
 	def show
+		#respond_with Product.find(params[:id])
+		set_product
   	end
 
 	def new
-	  	@product = Product.new
+	  @product = Product.new
 	end
 
 	def create
+		#respond_with Product.create(params[:product])
   		@product = Product.new(product_params)
 
   		respond_to do |format|
@@ -29,6 +35,7 @@ class ProductsController < ApplicationController
 	end
 
 	def update
+		#respond_with Product.update(params[:id], params[:product])
   		respond_to do |format|
     		if @product.update(product_params)
     			format.html { redirect_to @product, notice: 'Product was successfully updated.' }
@@ -41,6 +48,7 @@ class ProductsController < ApplicationController
   	end
 
 	def destroy
+		#respond_with Product.destroy(params[:id])
   		@product.destroy
     		respond_to do |format|
     		format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
